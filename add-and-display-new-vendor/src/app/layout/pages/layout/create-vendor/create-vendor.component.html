@@ -1,101 +1,149 @@
 <div class="container">
-  <div class="breadcrumb">
-   <a href="#">
-    Home
-   </a>
-   /
-   <a href="#">
-    Vendors
-   </a>
-   / Vendors
-  </div>
-  <div class="title">
-   New Vendor
-  </div>
-  <div class="section-title">
-   Profile Info
-   <span>
-    *
-   </span>
-   (Required for Vendor approval)
-  </div>
-
   <div class="form-group">
     <label for="vendor-name" class="vendorName-input">
-     Vendor Name
-     <span>
-      *
-     </span>
+      Vendor Name
+      <span>
+        *
+      </span>
     </label>
     <div class="section-subtitle">
-        Enter Guest facing Vendor name
+      Enter Guest facing Vendor name
     </div>
-    <input id="vendor-name" placeholder="" type="text"/>
-   </div>
-   <div class="section-title">
+    <input id="vendor-name" placeholder="" type="text" />
+  </div>
+  <div class="section-title">
     Address
     <span>
-     *
+      *
     </span>
-   </div>
-   <div class="section-subtitle">
+  </div>
+  <div class="section-subtitle">
     Enter vendor's physical address
-   </div>
-   <div class="form-row">
+  </div>
+  <div class="form-row">
     <div class="form-group">
-     <label for="street-address-1" class="sub-label">
-      Street Address 1
-     </label>
-     <input id="street-address-1" placeholder="Enter Address" type="text"/>
+      <label for="street-address-1" class="sub-label">
+        Street Address 1
+      </label>
+      <input id="street-address-1" placeholder="Enter Address" type="text" />
     </div>
     <div class="form-group">
-     <label for="street-address-2" class="sub-label">
-      Street Address 2
-     </label>
-     <input id="street-address-2" placeholder="Enter Address" type="text"/>
+      <label for="street-address-2" class="sub-label">
+        Street Address 2
+      </label>
+      <input id="street-address-2" placeholder="Enter Address" type="text" />
     </div>
-   </div>
-   <div class="form-row">
+  </div>
+  <div class="form-row">
     <div class="form-group">
-     <label for="city" class="sub-label">
-      City
-      <span>
-       *
-      </span>
-     </label>
-     <input id="city" placeholder="Enter City" type="text"/>
-    </div>
-    <div class="form-group">
-     <label for="country" class="sub-label">
-      Country
-      <span>
-       *
-      </span>
-     </label>
-     <select id="country">
-      <option>
-       Select Country
-      </option>
-     </select>
-    </div>
-   </div>
-   <div class="form-row">
-    <div class="form-group">
-     <label for="state" class="sub-label">
-      State/ Province/ Region
-     </label>
-     <select id="state">
-      <option>
-       Select State/Province/Region
-      </option>
-     </select>
+      <label for="city" class="sub-label">
+        City
+        <span>
+          *
+        </span>
+      </label>
+      <input id="city" placeholder="Enter City" type="text" />
     </div>
     <div class="form-group">
-     <label for="postal-code" class="sub-label">
-      Postal Code
-     </label>
-     <input id="postal-code" placeholder="Enter Postal Code" type="text"/>
+      <label for="country" class="sub-label">
+        Country
+        <span>
+          *
+        </span>
+      </label>
+      <select id="country">
+        <option>
+          Select Country
+        </option>
+      </select>
     </div>
-   </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="state" class="sub-label">
+        State/ Province/ Region
+      </label>
+      <select id="state" name="state" class="form-control">
+        <option value="">Select State/Province/Region</option>
+        <!-- US States -->
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <!-- Canadian Provinces -->
+        <option value="AB">Alberta</option>
+        <option value="BC">British Columbia</option>
+        <option value="ON">Ontario</option>
+        <option value="QC">Quebec</option>
+        <!-- Australian States -->
+        <option value="NSW">New South Wales</option>
+        <option value="VIC">Victoria</option>
+        <option value="QLD">Queensland</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="postal-code" class="sub-label">
+        Postal Code
+      </label>
+      <input id="postal-code" placeholder="Enter Postal Code" type="text" />
+    </div>
   </div>
 
+  <!--market-->
+  <div class="form-group">
+    <label for="market" class="market-input">
+      Market
+      <span>
+        *
+      </span>
+    </label>
+    <div class="section-subtitle">
+      Select all the market vendor provide services
+    </div>
+    <div class="form-group">
+      <select id="market" name="market" class="form-control">
+        <option value="">Select a Market</option>
+        <option value="AA-Antarctica">AA-Antarctica</option>
+        <option value="US-United-States">US-United States</option>
+        <option value="EU-European-Union">EU-European Union</option>
+        <option value="CA-Canada">CA-Canada</option>
+        <option value="AU-Australia">AU-Australia</option>
+        <option value="JP-Japan">JP-Japan</option>
+        <option value="CN-China">CN-China</option>
+        <option value="BR-Brazil">BR-Brazil</option>
+        <option value="IN-India">IN-India</option>
+        <option value="RU-Russia">RU-Russia</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row contact-info">
+    <div class="form-group">
+      <label for="email" class="sub-label">
+        Email
+      </label>
+      <input id="email" placeholder="Enter Email" type="text" />
+    </div>
+    <div class="form-group">
+      <label for="phone" class="sub-label" id="phone-label">
+        Phone
+      </label>
+      <div class="phone-group">
+        <select id="phone-code" name="Code" class="form-control">
+          <option value="">Code</option>
+          <option value="+91">(+91) India</option>
+        </select>
+        <input id="phone" placeholder="Enter Phone" type="text" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="website" class="sub-label">
+        Website (Optional)
+      </label>
+      <input id="website" placeholder="Enter Website" type="text" />
+    </div>
+  </div>
+
+
+  </div>

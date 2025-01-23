@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: #ffffff;
 }
 
 .container {
@@ -114,4 +114,33 @@ body {
 }
 .form-row .form-group.full-width {
   flex: 1 1 100%;
+}
+#market {
+  width: 49%;
+}
+
+
+.form-row.contact-info {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+
+.form-row.contact-info .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+#phone-code {
+  width: 30%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#phone {
+  width: 70%;
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 }

@@ -5,4 +5,19 @@
   padding: 0;
   background-color: #f5f5f5;
 }
+.breadcrumb {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  background-color: transparent;
+}
 
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}

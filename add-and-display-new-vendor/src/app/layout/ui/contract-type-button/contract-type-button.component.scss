@@ -1,0 +1,20 @@
+.radio-btn {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  max-width: fit-content;
+
+}
+.radio-btn:active{
+    background-color: rgba(168, 186, 210, 0.568);
+    border-color: blue;
+    color: blue;
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+}

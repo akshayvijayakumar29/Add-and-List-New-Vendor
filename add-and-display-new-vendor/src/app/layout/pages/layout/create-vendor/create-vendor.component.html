@@ -1,21 +1,23 @@
-<div class="container">
+<form [formGroup]="vendorForm" (ngSubmit)="onSubmit()" class="container">
+  <!-- Vendor Name -->
   <div class="form-group">
     <label for="vendor-name" class="vendorName-input">
       Vendor Name
-      <span>
-        *
-      </span>
+      <span>*</span>
     </label>
     <div class="section-subtitle">
       Enter Guest facing Vendor name
     </div>
-    <input id="vendor-name" placeholder="" type="text" />
+    <input id="vendor-name" formControlName="vendorName" placeholder="" type="text" />
+    <!-- <div *ngIf="vendorForm.get('vendorName').touched && vendorForm.get('vendorName')" class="error-message">
+      Vendor Name is required
+    </div> -->
   </div>
+
+  <!-- Address Section -->
   <div class="section-title">
     Address
-    <span>
-      *
-    </span>
+    <span>*</span>
   </div>
   <div class="section-subtitle">
     Enter vendor's physical address
@@ -25,37 +27,39 @@
       <label for="street-address-1" class="sub-label">
         Street Address 1
       </label>
-      <input id="street-address-1" placeholder="Enter Address" type="text" />
+      <input id="street-address-1" formControlName="streetAddress1" placeholder="Enter Address" type="text" />
     </div>
     <div class="form-group">
       <label for="street-address-2" class="sub-label">
         Street Address 2
       </label>
-      <input id="street-address-2" placeholder="Enter Address" type="text" />
+      <input id="street-address-2" formControlName="streetAddress2" placeholder="Enter Address" type="text" />
     </div>
   </div>
   <div class="form-row">
     <div class="form-group">
       <label for="city" class="sub-label">
         City
-        <span>
-          *
-        </span>
+        <span>*</span>
       </label>
-      <input id="city" placeholder="Enter City" type="text" />
+      <input id="city" formControlName="city" placeholder="Enter City" type="text" />
+      <!-- <div *ngIf="vendorForm.get('city').touched && vendorForm.get('city').invalid" class="error-message">
+        City is required
+      </div> -->
     </div>
     <div class="form-group">
       <label for="country" class="sub-label">
         Country
-        <span>
-          *
-        </span>
+        <span>*</span>
       </label>
-      <select id="country">
-        <option>
-          Select Country
+      <select id="country" formControlName="country">
+        <option *ngFor="let country of countries" [value]="country.value">
+          {{country.label}}
         </option>
       </select>
+      <!-- <div *ngIf="vendorForm.get('country').touched && vendorForm.get('country').invalid" class="error-message">
+        Country is required
+      </div> -->
     </div>
   </div>
   <div class="form-row">
@@ -63,113 +67,88 @@
       <label for="state" class="sub-label">
         State/ Province/ Region
       </label>
-      <select id="state" name="state" class="form-control">
-        <option value="">Select State/Province/Region</option>
-        <!-- US States -->
-        <option value="AL">Alabama</option>
-        <option value="AK">Alaska</option>
-        <option value="AZ">Arizona</option>
-        <option value="AR">Arkansas</option>
-        <option value="CA">California</option>
-        <!-- Canadian Provinces -->
-        <option value="AB">Alberta</option>
-        <option value="BC">British Columbia</option>
-        <option value="ON">Ontario</option>
-        <option value="QC">Quebec</option>
-        <!-- Australian States -->
-        <option value="NSW">New South Wales</option>
-        <option value="VIC">Victoria</option>
-        <option value="QLD">Queensland</option>
+      <select id="state" formControlName="state">
+        <option *ngFor="let state of states" [value]="state.value">
+          {{state.label}}
+        </option>
       </select>
     </div>
     <div class="form-group">
       <label for="postal-code" class="sub-label">
         Postal Code
       </label>
-      <input id="postal-code" placeholder="Enter Postal Code" type="text" />
+      <input id="postal-code" formControlName="postalCode" placeholder="Enter Postal Code" type="text" />
     </div>
   </div>
 
-  <!--market-->
+  <!-- Market -->
   <div class="form-group">
     <label for="market" class="market-input">
       Market
-      <span>
-        *
-      </span>
+      <span>*</span>
     </label>
     <div class="section-subtitle">
       Select all the market vendor provide services
     </div>
-    <div class="form-group">
-      <select id="market" name="market" class="form-control">
-        <option value="">Select a Market</option>
-        <option value="AA-Antarctica">AA-Antarctica</option>
-        <option value="US-United-States">US-United States</option>
-        <option value="EU-European-Union">EU-European Union</option>
-        <option value="CA-Canada">CA-Canada</option>
-        <option value="AU-Australia">AU-Australia</option>
-        <option value="JP-Japan">JP-Japan</option>
-        <option value="CN-China">CN-China</option>
-        <option value="BR-Brazil">BR-Brazil</option>
-        <option value="IN-India">IN-India</option>
-        <option value="RU-Russia">RU-Russia</option>
-      </select>
-    </div>
+    <select id="market" formControlName="market">
+      <option *ngFor="let market of markets" [value]="market.value">
+        {{market.label}}
+      </option>
+    </select>
+    <!-- <div *ngIf="vendorForm.get('market').touched && vendorForm.get('market').invalid" class="error-message">
+      Market is required
+    </div> -->
   </div>
 
-  <!--General Contact Information-->
+  <!-- Contact Information -->
   <label for="Contact-information" class="contact">
     General Contact Information
-    <span>
-      *
-    </span>
+    <span>*</span>
   </label>
   <div class="section-subtitle">
-    Enter atleast one contact information for this vendor
+    Enter at least one contact information for this vendor
   </div>
   <div class="form-row contact-info">
     <div class="form-group">
       <label for="email" class="sub-label">
         Email
       </label>
-      <input id="email" placeholder="Enter Email" type="text" />
+      <input id="email" formControlName="email" placeholder="Enter Email" type="text" />
     </div>
     <div class="form-group">
       <label for="phone" class="sub-label" id="phone-label">
         Phone
       </label>
       <div class="phone-group">
-        <select id="phone-code" name="Code" class="form-control">
-          <option value="">Code</option>
-          <option value="+91">(+91) India</option>
+        <select id="phone-code" formControlName="phoneCode">
+          <option *ngFor="let code of phoneCodes" [value]="code.value">
+            {{code.label}}
+          </option>
         </select>
-        <input id="phone" placeholder="Enter Phone" type="text" />
+        <input id="phone" formControlName="phone" placeholder="Enter Phone" type="text" />
       </div>
     </div>
     <div class="form-group">
       <label for="website" class="sub-label">
         Website (Optional)
       </label>
-      <input id="website" placeholder="Enter Website" type="text" />
+      <input id="website" formControlName="website" placeholder="Enter Website" type="text" />
     </div>
   </div>
 
-  <!--Service types-->
+  <!-- Service Types -->
   <label for="Contact-information" class="contact">
     Service Types
-    <span>
-      *
-    </span>
+    <span>*</span>
   </label>
   <div class="section-subtitle">
     Select all the service provided by this vendor
   </div>
   <div class="form-group">
-    <app-service-type-button></app-service-type-button>
+    <app-service-type-button formControlName="serviceTypes"></app-service-type-button>
   </div>
 
-  <!--Contract type-->
+  <!-- Contract Type -->
   <label for="Contract-information" class="contract">
     Contract Type
   </label>
@@ -177,10 +156,10 @@
     Select the Contract Type for this Hotel
   </div>
   <div class="form-group">
-    <app-contract-type-button></app-contract-type-button>
+    <app-contract-type-button formControlName="contractType"></app-contract-type-button>
   </div>
 
-  <!--vendor confidance-->
+  <!-- Vendor Confidence -->
   <label for="Contract-information" class="contract">
     Vendor Confidence
   </label>
@@ -188,8 +167,20 @@
     Select the Confidence Level for this Hotel
   </div>
   <div class="form-group">
-    <app-vendor-confidance-button></app-vendor-confidance-button>
+    <app-vendor-confidance-button formControlName="vendorConfidence"></app-vendor-confidance-button>
   </div>
 
-
-</div>
+  <!-- Contact Through -->
+  <label for="Contact-information" class="contact">
+    Contact Through
+  </label>
+  <div class="section-subtitle">
+    Select the company that Backroads will be using for bookings and payments
+  </div>
+  <div class="form-group">
+    <div class="input-wrapper">
+      <input id="select-vendor" placeholder="Select Vendor" type="text" />
+      <i class="bi bi-search"></i>
+    </div>
+  </div>
+</form>

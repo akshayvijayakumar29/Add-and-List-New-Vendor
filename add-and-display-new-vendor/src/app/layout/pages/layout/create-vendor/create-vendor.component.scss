@@ -142,26 +142,25 @@ body {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-
 }
-// .Service-type {
-//   display: flex;
-//   flex-wrap: wrap;
-//   gap: 10px;
-//   margin-bottom: 20px;
-// }
+#select-vendor {
+  width: 150%;
+}
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+}
 
-// .Service-button {
-//   padding: 10px 20px;
-//   border: 1px solid #ccc;
-//   border-radius: 20px;
-//   background-color: #fff;
-//   cursor: pointer;
-//   font-size: 14px;
-// }
+.input-wrapper input {
+  padding-left: 30px;
+  width: 50%;
+}
 
-// .Service-button:hover {
-//   background-color: #f0f0f0;
-// }
-
-
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none; /* Ensures icon doesn't interfere with input */
+}

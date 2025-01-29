@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ContractTypeButtonComponent } from "../../../ui/contract-type-button/contract-type-button.component";
 import { ServiceTypeButtonComponent } from "../../../ui/service-type-button/service-type-button.component";
 import { VendorConfidanceButtonComponent } from "../../../ui/vendor-confidance-button/vendor-confidance-button.component";
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -14,6 +14,20 @@ import { CommonModule } from '@angular/common';
 })
 export class CreateVendorComponent {
   vendorForm = new FormGroup({
+    vendorName: new FormControl('',[Validators.required]),
+    streetAddress1:new FormControl('',[Validators.required]),
+    streetAddress2: new FormControl(''),
+    city: new FormControl('',[Validators.required]),
+    country: new FormControl('',[Validators.required]),
+    state: new FormControl(''),
+    postalCode: new FormControl(''),
+    market: new FormControl(''),
+    email:new FormControl('',[Validators.required]),
+    phoneCode:new FormControl('',[Validators.required]),
+    website:new FormControl(''),
+    contractType:new FormControl(''),
+    vendorConfidence:new FormControl(''),
+    phone:new FormControl('',[Validators.required]),
 
   })
 
@@ -59,41 +73,36 @@ export class CreateVendorComponent {
   ];
 
   phoneCodes = [
-    { value: '', label: 'Code' },
-    { value: '+91', label: '(+91) India' }
-  ];
+  { value: '', label: 'Code' },
+  { value: '+91', label: '(+91) India' },
+  { value: '+1', label: '(+1) United States' },
+  { value: '+44', label: '(+44) United Kingdom' },
+  { value: '+61', label: '(+61) Australia' },
+  { value: '+81', label: '(+81) Japan' },
+  { value: '+49', label: '(+49) Germany' },
+  { value: '+33', label: '(+33) France' },
+  { value: '+39', label: '(+39) Italy' },
+  { value: '+86', label: '(+86) China' },
+  { value: '+55', label: '(+55) Brazil' },
+  { value: '+7', label: '(+7) Russia' },
+  { value: '+82', label: '(+82) South Korea' },
+  { value: '+34', label: '(+34) Spain' },
+  { value: '+62', label: '(+62) Indonesia' },
+  { value: '+27', label: '(+27) South Africa' }
+];
+
 
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {
-    this.initForm();
+  ngOnInit() {
   }
 
-  initForm(): void {
-    // this.vendorForm = this.fb.group({
-    //   vendorName: ['', Validators.required],
-    //   streetAddress1: [''],
-    //   streetAddress2: [''],
-    //   city: ['', Validators.required],
-    //   country: ['', Validators.required],
-    //   state: [''],
-    //   postalCode: [''],
-    //   market: ['', Validators.required],
-    //   email: ['', [Validators.email]],
-    //   phoneCode: [''],
-    //   phone: [''],
-    //   website: [''],
-    //   serviceTypes: ['', Validators.required],
-    //   contractType: [''],
-    //   vendorConfidence: ['']
-    // });
-  }
 
-  onSubmit(): void {
-    if (this.vendorForm.valid) {
+
+  onSubmit() {
+
       console.log(this.vendorForm.value);
-      // Handle form submission
-    }
+
   }
 
 

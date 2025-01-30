@@ -6,11 +6,12 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from "../../../ui/navbar/navbar.component";
 import { ApiService } from '../../../../api.service';
+import { FooterComponent } from "../../../ui/footer/footer.component";
 
 @Component({
   selector: 'app-create-vendor',
   standalone: true,
-  imports: [ContractTypeButtonComponent, ServiceTypeButtonComponent, VendorConfidanceButtonComponent, ReactiveFormsModule, CommonModule, NavbarComponent],
+  imports: [ContractTypeButtonComponent, ServiceTypeButtonComponent, VendorConfidanceButtonComponent, ReactiveFormsModule, CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './create-vendor.component.html',
   styleUrl: './create-vendor.component.scss'
 })
@@ -23,7 +24,7 @@ export class CreateVendorComponent {
     country: new FormControl('',[Validators.required]),
     state: new FormControl(''),
     postalCode: new FormControl(''),
-    market: new FormControl(''),
+    market: new FormControl('',[Validators.required]),
     email:new FormControl('',[Validators.required]),
     phoneCode:new FormControl('',[Validators.required]),
     website:new FormControl(''),
@@ -33,50 +34,51 @@ export class CreateVendorComponent {
 
   })
 
-  markets = [
-    { value: '', label: 'Select a Market' },
-    { value: 'AA-Antarctica', label: 'AA-Antarctica' },
-    { value: 'US-United-States', label: 'US-United States' },
-    { value: 'EU-European-Union', label: 'EU-European Union' },
-    { value: 'CA-Canada', label: 'CA-Canada' },
-    { value: 'AU-Australia', label: 'AU-Australia' },
-    { value: 'JP-Japan', label: 'JP-Japan' },
-    { value: 'CN-China', label: 'CN-China' },
-    { value: 'BR-Brazil', label: 'BR-Brazil' },
-    { value: 'IN-India', label: 'IN-India' },
-    { value: 'RU-Russia', label: 'RU-Russia' }
-  ];
 
-  states = [
-    { value: '', label: 'Select State/Province/Region' },
-    // US States
-    { value: 'AL', label: 'Alabama' },
-    { value: 'AK', label: 'Alaska' },
-    { value: 'AZ', label: 'Arizona' },
-    { value: 'AR', label: 'Arkansas' },
-    { value: 'CA', label: 'California' },
-    // Canadian Provinces
-    { value: 'AB', label: 'Alberta' },
-    { value: 'BC', label: 'British Columbia' },
-    { value: 'ON', label: 'Ontario' },
-    { value: 'QC', label: 'Quebec' },
-    // Australian States
-    { value: 'NSW', label: 'New South Wales' },
-    { value: 'VIC', label: 'Victoria' },
-    { value: 'QLD', label: 'Queensland' }
-  ];
+
+  validationMessages = {
+    vendorName: [
+      { type: 'required', message: 'Vendor name is required' },
+      { type: 'minlength', message: 'Name must be at least 2 characters long' }
+    ],
+    city: [
+      { type: 'required', message: 'City is required' }
+    ],
+    country: [
+      { type: 'required', message: 'Please select a country' }
+    ],
+    email: [
+      { type: 'email', message: 'Please enter a valid email' }
+    ],
+    phone: [
+      { type: 'pattern', message: 'Please enter a valid phone number' }
+    ],
+    market: [
+      { type: 'required', message: 'Please select at least one market' }
+    ],
+    serviceTypes: [
+      { type: 'required', message: 'Please select at least one service type' }
+    ]
+  };
 
   constructor(private fb: FormBuilder,
     private api: ApiService
   ) {}
 
   countries:any
+  markets:any
   ngOnInit()
   {
     this.api.getCountryList().subscribe((res:any)=>{
     this.countries=res;
     console.log(this.countries);
     })
+
+    this.api.getMarkets().subscribe((res:any)=>{
+      this.markets=res;
+      console.log(this.markets);
+
+  })
   }
 
 

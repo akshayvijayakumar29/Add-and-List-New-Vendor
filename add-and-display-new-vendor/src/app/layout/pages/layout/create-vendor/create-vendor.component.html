@@ -56,9 +56,10 @@
         <span>*</span>
       </label>
       <select id="country" formControlName="country">
-        <option *ngFor="let country of countries" [value]="country.value">
-          {{country.label}}
-        </option>
+        <option value="Select country">Select country</option>
+        @for(item of countries; track item){
+          <option>{{item.name}}</option>
+        }
       </select>
       <!-- <div *ngIf="vendorForm.get('country').touched && vendorForm.get('country').invalid" class="error-message">
         Country is required
@@ -71,9 +72,10 @@
         State/ Province/ Region
       </label>
       <select id="state" formControlName="state">
-        <option *ngFor="let state of states" [value]="state.value">
-          {{state.label}}
-        </option>
+        <option value="Select Region">State/ Province/ Region</option>
+        @for(item of countries; track item){
+          <option>{{item.regions}}</option>
+        }
       </select>
     </div>
     <div class="form-group">
@@ -124,9 +126,10 @@
       </label>
       <div class="phone-group">
         <select id="phone-code" formControlName="phoneCode">
-          <option *ngFor="let code of phoneCodes" [value]="code.value">
-            {{code.label}}
-          </option>
+          <option value="phone-code">Cgiode</option>
+          @for(item of countries; track item){
+            <option>{{item.phone_code}}-{{item.name}}</option>
+          }
         </select>
         <input id="phone" formControlName="phone" placeholder="Enter Phone" type="text" />
       </div>

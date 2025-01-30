@@ -5,6 +5,7 @@ import { VendorConfidanceButtonComponent } from "../../../ui/vendor-confidance-b
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from "../../../ui/navbar/navbar.component";
+import { ApiService } from '../../../../api.service';
 
 @Component({
   selector: 'app-create-vendor',
@@ -31,14 +32,6 @@ export class CreateVendorComponent {
     phone:new FormControl('',[Validators.required]),
 
   })
-
-  countries = [
-    { value: '', label: 'Select Country' },
-    { value: 'US', label: 'United States' },
-    { value: 'CA', label: 'Canada' },
-    { value: 'AU', label: 'Australia' },
-    // Add more countries as needed
-  ];
 
   markets = [
     { value: '', label: 'Select a Market' },
@@ -73,29 +66,17 @@ export class CreateVendorComponent {
     { value: 'QLD', label: 'Queensland' }
   ];
 
-  phoneCodes = [
-  { value: '', label: 'Code' },
-  { value: '+91', label: '(+91) India' },
-  { value: '+1', label: '(+1) United States' },
-  { value: '+44', label: '(+44) United Kingdom' },
-  { value: '+61', label: '(+61) Australia' },
-  { value: '+81', label: '(+81) Japan' },
-  { value: '+49', label: '(+49) Germany' },
-  { value: '+33', label: '(+33) France' },
-  { value: '+39', label: '(+39) Italy' },
-  { value: '+86', label: '(+86) China' },
-  { value: '+55', label: '(+55) Brazil' },
-  { value: '+7', label: '(+7) Russia' },
-  { value: '+82', label: '(+82) South Korea' },
-  { value: '+34', label: '(+34) Spain' },
-  { value: '+62', label: '(+62) Indonesia' },
-  { value: '+27', label: '(+27) South Africa' }
-];
+  constructor(private fb: FormBuilder,
+    private api: ApiService
+  ) {}
 
-
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit() {
+  countries:any
+  ngOnInit()
+  {
+    this.api.getCountryList().subscribe((res:any)=>{
+    this.countries=res;
+    console.log(this.countries);
+    })
   }
 
 

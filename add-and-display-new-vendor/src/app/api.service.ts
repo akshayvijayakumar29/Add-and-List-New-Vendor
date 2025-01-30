@@ -8,7 +8,10 @@ export class ApiService {
 
 
   constructor(private http:HttpClient) { }
-  getCountries(){
+  // getCountries(){
+  //   return this.http.get('../../data/countries.json');
+  // }
+  getCountryList(){
     return this.http.get('../../data/countries.json');
   }
 }

@@ -1,198 +1,162 @@
-{
-  "countries": [
-    "Afghanistan",
-    "Albania",
-    "Algeria",
-    "Andorra",
-    "Angola",
-    "Antigua and Barbuda",
-    "Argentina",
-    "Armenia",
-    "Australia",
-    "Austria",
-    "Azerbaijan",
-    "Bahamas",
-    "Bahrain",
-    "Bangladesh",
-    "Barbados",
-    "Belarus",
-    "Belgium",
-    "Belize",
-    "Benin",
-    "Bhutan",
-    "Bolivia",
-    "Bosnia and Herzegovina",
-    "Botswana",
-    "Brazil",
-    "Brunei",
-    "Bulgaria",
-    "Burkina Faso",
-    "Burundi",
-    "Cabo Verde",
-    "Cambodia",
-    "Cameroon",
-    "Canada",
-    "Central African Republic",
-    "Chad",
-    "Chile",
-    "China",
-    "Colombia",
-    "Comoros",
-    "Congo (Congo-Brazzaville)",
-    "Congo (Democratic Republic of the Congo)",
-    "Costa Rica",
-    "Croatia",
-    "Cuba",
-    "Cyprus",
-    "Czech Republic",
-    "Denmark",
-    "Djibouti",
-    "Dominica",
-    "Dominican Republic",
-    "Ecuador",
-    "Egypt",
-    "El Salvador",
-    "Equatorial Guinea",
-    "Eritrea",
-    "Estonia",
-    "Eswatini",
-    "Ethiopia",
-    "Fiji",
-    "Finland",
-    "France",
-    "Gabon",
-    "Gambia",
-    "Georgia",
-    "Germany",
-    "Ghana",
-    "Greece",
-    "Grenada",
-    "Guatemala",
-    "Guinea",
-    "Guinea-Bissau",
-    "Guyana",
-    "Haiti",
-    "Honduras",
-    "Hungary",
-    "Iceland",
-    "India",
-    "Indonesia",
-    "Iran",
-    "Iraq",
-    "Ireland",
-    "Israel",
-    "Italy",
-    "Jamaica",
-    "Japan",
-    "Jordan",
-    "Kazakhstan",
-    "Kenya",
-    "Kiribati",
-    "Korea (North)",
-    "Korea (South)",
-    "Kuwait",
-    "Kyrgyzstan",
-    "Laos",
-    "Latvia",
-    "Lebanon",
-    "Lesotho",
-    "Liberia",
-    "Libya",
-    "Liechtenstein",
-    "Lithuania",
-    "Luxembourg",
-    "Madagascar",
-    "Malawi",
-    "Malaysia",
-    "Maldives",
-    "Mali",
-    "Malta",
-    "Marshall Islands",
-    "Mauritania",
-    "Mauritius",
-    "Mexico",
-    "Micronesia",
-    "Moldova",
-    "Monaco",
-    "Mongolia",
-    "Montenegro",
-    "Morocco",
-    "Mozambique",
-    "Myanmar",
-    "Namibia",
-    "Nauru",
-    "Nepal",
-    "Netherlands",
-    "New Zealand",
-    "Nicaragua",
-    "Niger",
-    "Nigeria",
-    "North Macedonia",
-    "Norway",
-    "Oman",
-    "Pakistan",
-    "Palau",
-    "Panama",
-    "Papua New Guinea",
-    "Paraguay",
-    "Peru",
-    "Philippines",
-    "Poland",
-    "Portugal",
-    "Qatar",
-    "Romania",
-    "Russia",
-    "Rwanda",
-    "Saint Kitts and Nevis",
-    "Saint Lucia",
-    "Saint Vincent and the Grenadines",
-    "Samoa",
-    "San Marino",
-    "Sao Tome and Principe",
-    "Saudi Arabia",
-    "Senegal",
-    "Serbia",
-    "Seychelles",
-    "Sierra Leone",
-    "Singapore",
-    "Slovakia",
-    "Slovenia",
-    "Solomon Islands",
-    "Somalia",
-    "South Africa",
-    "South Sudan",
-    "Spain",
-    "Sri Lanka",
-    "Sudan",
-    "Suriname",
-    "Sweden",
-    "Switzerland",
-    "Syria",
-    "Taiwan",
-    "Tajikistan",
-    "Tanzania",
-    "Thailand",
-    "Timor-Leste",
-    "Togo",
-    "Tonga",
-    "Trinidad and Tobago",
-    "Tunisia",
-    "Turkey",
-    "Turkmenistan",
-    "Tuvalu",
-    "Uganda",
-    "Ukraine",
-    "United Arab Emirates",
-    "United Kingdom",
-    "United States",
-    "Uruguay",
-    "Uzbekistan",
-    "Vanuatu",
-    "Vatican City",
-    "Venezuela",
-    "Vietnam",
-    "Yemen",
-    "Zambia",
-    "Zimbabwe"
-  ]
-}
+[
+  {
+    "name": "Afghanistan",
+    "phone_code": "(93) Afghanistan",
+    "regions": ["Badakhshan (Afghanistan)"]
+  },
+  {
+    "name": "Albania",
+    "phone_code": "(355) Albania",
+    "regions": ["Berat (Albania)"]
+  },
+  {
+    "name": "Algeria",
+    "phone_code": "(213) Algeria",
+    "regions": ["Adrar (Algeria)"]
+  },
+  {
+    "name": "Andorra",
+    "phone_code": "(376) Andorra",
+    "regions": ["Andorra la Vella (Andorra)"]
+  },
+  {
+    "name": "Australia",
+    "phone_code": "(61) Australia",
+    "regions": ["New South Wales (Australia)"]
+  },
+  {
+    "name": "Brazil",
+    "phone_code": "(55) Brazil",
+    "regions": ["Acre (Brazil)"]
+  },
+  {
+    "name": "Canada",
+    "phone_code": "(1) Canada",
+    "regions": ["Alberta (Canada)"]
+  },
+  {
+    "name": "Chile",
+    "phone_code": "(56) Chile",
+    "regions": ["Arica and Parinacota (Chile)"]
+  },
+  {
+    "name": "China",
+    "phone_code": "(86) China",
+    "regions": ["Anhui (China)"]
+  },
+  {
+    "name": "Colombia",
+    "phone_code": "(57) Colombia",
+    "regions": ["Amazonas (Colombia)"]
+  },
+  {
+    "name": "Egypt",
+    "phone_code": "(20) Egypt",
+    "regions": ["Alexandria (Egypt)"]
+  },
+  {
+    "name": "France",
+    "phone_code": "(33) France",
+    "regions": ["Auvergne-Rhône-Alpes (France)"]
+  },
+  {
+    "name": "Germany",
+    "phone_code": "(49) Germany",
+    "regions": ["Baden-Württemberg (Germany)"]
+  },
+  {
+    "name": "Greece",
+    "phone_code": "(30) Greece",
+    "regions": ["Attica (Greece)"]
+  },
+  {
+    "name": "India",
+    "phone_code": "(91) India",
+    "regions": ["Andhra Pradesh (India)"]
+  },
+  {
+    "name": "Italy",
+    "phone_code": "(39) Italy",
+    "regions": ["Abruzzo (Italy)"]
+  },
+  {
+    "name": "Japan",
+    "phone_code": "(81) Japan",
+    "regions": ["Hokkaido (Japan)"]
+  },
+  {
+    "name": "Kenya",
+    "phone_code": "(254) Kenya",
+    "regions": ["Central (Kenya)"]
+  },
+  {
+    "name": "Mexico",
+    "phone_code": "(52) Mexico",
+    "regions": ["Aguascalientes (Mexico)"]
+  },
+  {
+    "name": "Netherlands",
+    "phone_code": "(31) Netherlands",
+    "regions": ["Drenthe (Netherlands)"]
+  },
+  {
+    "name": "Nigeria",
+    "phone_code": "(234) Nigeria",
+    "regions": ["Abia (Nigeria)"]
+  },
+  {
+    "name": "Pakistan",
+    "phone_code": "(92) Pakistan",
+    "regions": ["Azad Jammu and Kashmir (Pakistan)"]
+  },
+  {
+    "name": "Poland",
+    "phone_code": "(48) Poland",
+    "regions": ["Greater Poland (Poland)"]
+  },
+  {
+    "name": "Portugal",
+    "phone_code": "(351) Portugal",
+    "regions": ["Azores (Portugal)"]
+  },
+  {
+    "name": "Russia",
+    "phone_code": "(7) Russia",
+    "regions": ["Central (Russia)"]
+  },
+  {
+    "name": "South Africa",
+    "phone_code": "(27) South Africa",
+    "regions": ["Eastern Cape (South Africa)"]
+  },
+  {
+    "name": "Spain",
+    "phone_code": "(34) Spain",
+    "regions": ["Andalusia (Spain)"]
+  },
+  {
+    "name": "Turkey",
+    "phone_code": "(90) Turkey",
+    "regions": ["Adana (Turkey)"]
+  },
+  {
+    "name": "United Kingdom",
+    "phone_code": "(44) United Kingdom",
+    "regions": ["England (United Kingdom)"]
+  },
+  {
+    "name": "United States",
+    "phone_code": "(1) United States",
+    "regions": ["Alabama (United States)"]
+  },
+  {
+    "name": "Vietnam",
+    "phone_code": "(84) Vietnam",
+    "regions": ["An Giang (Vietnam)"]
+  },
+  {
+    "name": "Zimbabwe",
+    "phone_code": "(263) Zimbabwe",
+    "regions": ["Bulawayo (Zimbabwe)"]
+  }
+]

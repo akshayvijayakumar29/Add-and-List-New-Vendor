@@ -12,9 +12,13 @@
       Enter Guest facing Vendor name
     </div>
     <input id="vendor-name" formControlName="vendorName" placeholder="" type="text" />
-    <!-- <div *ngIf="vendorForm.get('vendorName').touched && vendorForm.get('vendorName')" class="error-message">
-      Vendor Name is required
-    </div> -->
+    @for (message of validationMessages.vendorName; track message.type) {
+    @if (vendorForm.get('vendorName')?.hasError(message.type) &&
+    (vendorForm.get('vendorName')?.dirty ||
+    vendorForm.get('vendorName')?.touched)) {
+    <div class="error-message">{{ message.message }}</div>
+    }
+    }
   </div>
 
   <!-- Address Section -->
@@ -46,9 +50,13 @@
         <span>*</span>
       </label>
       <input id="city" formControlName="city" placeholder="Enter City" type="text" />
-      <!-- <div *ngIf="vendorForm.get('city').touched && vendorForm.get('city').invalid" class="error-message">
-        City is required
-      </div> -->
+      @for (message of validationMessages.city; track message.type) {
+      @if (vendorForm.get('city')?.hasError(message.type) &&
+      (vendorForm.get('city')?.dirty ||
+      vendorForm.get('city')?.touched)) {
+      <div class="error-message">{{ message.message }}</div>
+      }
+      }
     </div>
     <div class="form-group">
       <label for="country" class="sub-label">
@@ -56,14 +64,18 @@
         <span>*</span>
       </label>
       <select id="country" formControlName="country">
-        <option value="Select country">Select country</option>
+        <option value="">Select country</option>
         @for(item of countries; track item){
-          <option>{{item.name}}</option>
+        <option>{{item.name}}</option>
         }
       </select>
-      <!-- <div *ngIf="vendorForm.get('country').touched && vendorForm.get('country').invalid" class="error-message">
-        Country is required
-      </div> -->
+      @for (message of validationMessages.country; track message.type) {
+      @if (vendorForm.get('country')?.hasError(message.type) &&
+      (vendorForm.get('country')?.dirty ||
+      vendorForm.get('country')?.touched)) {
+      <div class="error-message">{{ message.message }}</div>
+      }
+      }
     </div>
   </div>
   <div class="form-row">
@@ -74,7 +86,7 @@
       <select id="state" formControlName="state">
         <option value="Select Region">State/ Province/ Region</option>
         @for(item of countries; track item){
-          <option>{{item.regions}}</option>
+        <option>{{item.regions}}</option>
         }
       </select>
     </div>
@@ -96,13 +108,20 @@
       Select all the market vendor provide services
     </div>
     <select id="market" formControlName="market">
-      <option *ngFor="let market of markets" [value]="market.value">
-        {{market.label}}
-      </option>
+      <option value="">Select Market</option>
+      @for(item of markets;track item){
+      <option>{{item.label}}</option>
+      }
     </select>
-    <!-- <div *ngIf="vendorForm.get('market').touched && vendorForm.get('market').invalid" class="error-message">
-      Market is required
-    </div> -->
+    @for (message of validationMessages.market; track message.type) {
+    @if (vendorForm.get('market')?.hasError(message.type) &&
+    (vendorForm.get('market')?.dirty ||
+    vendorForm.get('market')?.touched)) {
+    <div class="error-message">{{ message.message }}</div>
+    }
+    }
+
+
   </div>
 
   <!-- Contact Information -->
@@ -120,15 +139,23 @@
       </label>
       <input id="email" formControlName="email" placeholder="Enter Email" type="text" />
     </div>
+    @for (message of validationMessages.email; track message.type) {
+    @if (vendorForm.get('email')?.hasError(message.type) &&
+    (vendorForm.get('email')?.dirty ||
+    vendorForm.get('email')?.touched)) {
+    <div class="error-message">{{ message.message }}</div>
+    }
+    }
+
     <div class="form-group">
       <label for="phone" class="sub-label" id="phone-label">
         Phone
       </label>
       <div class="phone-group">
         <select id="phone-code" formControlName="phoneCode">
-          <option value="phone-code">Cgiode</option>
+          <option value="phone-code">Code</option>
           @for(item of countries; track item){
-            <option>{{item.phone_code}}-{{item.name}}</option>
+          <option>{{item.phone_code}}</option>
           }
         </select>
         <input id="phone" formControlName="phone" placeholder="Enter Phone" type="text" />
@@ -152,6 +179,13 @@
   </div>
   <div class="form-group">
     <app-service-type-button formControlName="serviceTypes"></app-service-type-button>
+    @for (message of validationMessages.serviceTypes; track message.type) {
+    @if (vendorForm.get('serviceTypes')?.hasError(message.type) &&
+    (vendorForm.get('serviceTypes')?.dirty ||
+    vendorForm.get('serviceTypes')?.touched)) {
+    <div class="error-message">{{ message.message }}</div>
+    }
+    }
   </div>
 
   <!-- Contract Type -->
@@ -190,3 +224,4 @@
     </div>
   </div>
 </form>
+<app-footer></app-footer>

@@ -4,11 +4,12 @@ import { ServiceTypeButtonComponent } from "../../../ui/service-type-button/serv
 import { VendorConfidanceButtonComponent } from "../../../ui/vendor-confidance-button/vendor-confidance-button.component";
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from "../../../ui/navbar/navbar.component";
 
 @Component({
   selector: 'app-create-vendor',
   standalone: true,
-  imports: [ContractTypeButtonComponent, ServiceTypeButtonComponent, VendorConfidanceButtonComponent, ReactiveFormsModule, CommonModule],
+  imports: [ContractTypeButtonComponent, ServiceTypeButtonComponent, VendorConfidanceButtonComponent, ReactiveFormsModule, CommonModule, NavbarComponent],
   templateUrl: './create-vendor.component.html',
   styleUrl: './create-vendor.component.scss'
 })

@@ -28,8 +28,8 @@ export class CreateVendorComponent {
     email:new FormControl('',[Validators.required]),
     phoneCode:new FormControl('',[Validators.required]),
     website:new FormControl(''),
-    contractType:new FormControl(''),
-    vendorConfidence:new FormControl(''),
+    contractType:new FormControl('',[Validators.required]),
+    vendorConfidence:new FormControl('',[Validators.required]),
     phone:new FormControl('',[Validators.required]),
 
   })
@@ -86,6 +86,7 @@ export class CreateVendorComponent {
   onSubmit() {
 
       console.log(this.vendorForm.value);
+      console.log('Contract Type:', this.vendorForm.get('contractType')?.value);
 
   }
 

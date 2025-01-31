@@ -1,19 +1,45 @@
-.Service-type {
+.radio-group {
   display: flex;
-  flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-.Service-button {
+.radio-btn {
+  position: relative;
   padding: 10px 20px;
   border: 1px solid #ccc;
   border-radius: 20px;
   background-color: #fff;
   cursor: pointer;
   font-size: 14px;
+  max-width: fit-content;
+  max-height: fit-content;
+  transition: all 0.3s ease;
 }
 
-.Service-button:hover {
-  background-color: #f0f0f0;
+.radio-btn input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-btn span {
+  display: block;
+}
+
+/* Selected state */
+.radio-btn:has(input[type="radio"]:checked) {
+  background-color: rgba(168, 186, 210, 0.568);
+  border-color: rgb(235, 235, 245);
+  color: rgb(97, 202, 228);
+}
+
+/* Active state */
+.radio-btn:active {
+  background-color: rgba(168, 186, 210, 0.568);
+  border-color: rgb(97, 202, 228);
+}
+.service-name {
+  color: black;
 }

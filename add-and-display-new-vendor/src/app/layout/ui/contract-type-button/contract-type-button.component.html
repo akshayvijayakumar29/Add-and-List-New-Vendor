@@ -1,22 +1,22 @@
 <div class="radio-group">
   <label>
     <div class="radio-btn">
-      <input type="radio" name="contract-type" value="full-contract"> Full Contract
+      <input type="radio" name="contract-type" value="full-contract" (change)="onChange('full-contract')" formControlName="contractType"> Full Contract
     </div>
   </label>
   <div class="radio-btn">
     <label>
-      <input type="radio" name="contract-type" value="dates-rates"> Dates & rates
+      <input type="radio" name="contract-type" value="dates-rates" (change)="onChange('dates-rates')" formControlName="contractType"> Dates & rates
     </label>
   </div>
   <div class="radio-btn">
     <label>
-      <input type="radio" name="contract-type" value="online-booking"> Online Booking
+      <input type="radio" name="contract-type" value="online-booking" (change)="onChange('online-booking')" formControlName="contractType"> Online Booking
     </label>
   </div>
-<div class="radio-btn">
-  <label>
-    <input type="radio" name="contract-type" value="no-contract"> No contract
-  </label>
-</div>
+  <div class="radio-btn">
+    <label>
+      <input type="radio" name="contract-type" value="no-contract" (change)="onChange('no-contract')" formControlName="contractType"> No contract
+    </label>
+  </div>
 </div>

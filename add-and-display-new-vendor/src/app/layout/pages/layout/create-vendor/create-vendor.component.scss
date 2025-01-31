@@ -199,3 +199,47 @@ input.ng-invalid.ng-touched,
 select.ng-invalid.ng-touched {
   border-color: #dc3545;
 }
+
+
+
+
+.form-footer {
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 100;
+  padding: 5px;
+}
+
+
+.form-footer .note {
+  font-size: 14px;
+  padding-left: 10px;
+  color: #666;
+}
+.form-footer button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.form-footer .discard {
+  background-color: white;
+  color: #4cb9e7;
+  border: 1px solid #ccc;
+}
+.form-footer .submit {
+  background-color: #8fa8b9;
+  color: white;
+}
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem ;
+}

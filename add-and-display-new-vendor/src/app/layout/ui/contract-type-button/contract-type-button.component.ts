@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { ControlValueAccessor, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-contract-type-button',
@@ -8,15 +8,30 @@ import { FormControl } from '@angular/forms';
   templateUrl: './contract-type-button.component.html',
   styleUrl: './contract-type-button.component.scss'
 })
-export class ContractTypeButtonComponent {
+export class ContractTypeButtonComponent implements ControlValueAccessor{
+  @Input() contractTypeControl: any; // Accepting FormControl from parent
+  selectedContractType: string = '';
 
+  onChange: any = () => {};
+  onTouched: any = () => {};
 
-  @Input() formControl: FormControl = new FormControl(); // Default initialization in constructor
-  @Output() valueChanged = new EventEmitter<any>(); // Emit value changes
+  writeValue(value: string): void {
+    this.selectedContractType = value;
+  }
 
-  onChange(value: string) {
-    this.formControl.setValue(value);  // Update the formControl value
-    this.valueChanged.emit(value); // Emit the new value
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  onContractTypeChange(value: string) {
+    this.selectedContractType = value;
+    this.onChange(value);
+    this.onTouched();
+    this.contractTypeControl.setValue(value); // Updating form control
   }
 
 }

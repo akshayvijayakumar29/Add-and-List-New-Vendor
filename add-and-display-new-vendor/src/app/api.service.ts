@@ -14,4 +14,8 @@ export class ApiService {
   getCountryList(){
     return this.http.get('../../data/countries.json');
   }
+
+  getListofVendors(){
+    return this.http.get('http://localhost:5088/api/vendors');
+  }
 }

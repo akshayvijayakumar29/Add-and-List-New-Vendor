@@ -1,0 +1,149 @@
+.navbar {
+  background-color: #b59b3b;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar img {
+  height: 40px;
+}
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+}
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 500;
+}
+.navbar .nav-links a:hover {
+  text-decoration: underline;
+}
+.navbar .nav-icons {
+  display: flex;
+  align-items: center;
+}
+.navbar .nav-icons i {
+  color: white;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.container {
+  padding: 20px;
+}
+.breadcrumb {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+.breadcrumb span {
+  margin: 0 5px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+.header .add-vendor-btn {
+  background-color: #0033a0;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.header .add-vendor-btn:hover {
+  background-color: #002080;
+}
+.filters {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.filters button, .filters input {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.filters input {
+  flex: 1;
+}
+.filters button:hover {
+  background-color: #f0f0f0;
+}
+.table-container {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+th {
+  background-color: #f0f0f0;
+  font-weight: 500;
+}
+.status-badge {
+  background-color: #ffcc00;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.pagination select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.pagination .page-numbers {
+  display: flex;
+  align-items: center;
+}
+.pagination .page-numbers button {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.pagination .page-numbers button:hover {
+  background-color: #f0f0f0;
+}
+.pagination .page-numbers .active {
+  background-color: #0033a0;
+  color: white;
+}

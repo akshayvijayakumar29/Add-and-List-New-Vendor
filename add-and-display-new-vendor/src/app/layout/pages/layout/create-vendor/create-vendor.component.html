@@ -1,6 +1,7 @@
 <div class="top-nav-section">
   <app-navbar></app-navbar>
 </div>
+<app-breadcrumb></app-breadcrumb>
 <form [formGroup]="vendorForm" (ngSubmit)="onSubmit()" class="container">
   <!-- Vendor Name -->
   <div class="form-group">
@@ -178,8 +179,9 @@
     Select all the service provided by this vendor
   </div>
   <div class="form-group">
-    <app-service-type-button formControlName="serviceTypes"></app-service-type-button>
-    @for (message of validationMessages.serviceTypes; track message.type) {
+    <!-- <app-service-type-button ></app-service-type-button> -->
+
+    @for (message of validationMessages.serviceType; track message.type) {
     @if (vendorForm.get('serviceTypes')?.hasError(message.type) &&
     (vendorForm.get('serviceTypes')?.dirty ||
     vendorForm.get('serviceTypes')?.touched)) {
@@ -196,7 +198,7 @@
     Select the Contract Type for this Hotel
   </div>
   <div class="form-group">
-    <app-contract-type-button formControlName="contractType"></app-contract-type-button>
+    <app-contract-type-button></app-contract-type-button>
   </div>
 
   <!-- Vendor Confidence -->
@@ -207,7 +209,7 @@
     Select the Confidence Level for this Hotel
   </div>
   <div class="form-group">
-    <app-vendor-confidance-button formControlName="vendorConfidence"></app-vendor-confidance-button>
+    <app-vendor-confidance-button></app-vendor-confidance-button>
   </div>
 
   <!-- Contact Through -->
@@ -237,6 +239,8 @@
    <button class="submit" type="submit" (click)="onSubmit()">
     Submit for Approval
    </button>
+
+   <!-- <app-discard-modal></app-discard-modal> -->
   </div>
  </div>
 

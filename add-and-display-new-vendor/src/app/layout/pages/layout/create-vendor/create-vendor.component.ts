@@ -1,38 +1,50 @@
+import { ServiceTypeButtonComponent } from './../../../ui/service-type-button/service-type-button.component';
 import { Component } from '@angular/core';
 import { ContractTypeButtonComponent } from "../../../ui/contract-type-button/contract-type-button.component";
-import { ServiceTypeButtonComponent } from "../../../ui/service-type-button/service-type-button.component";
 import { VendorConfidanceButtonComponent } from "../../../ui/vendor-confidance-button/vendor-confidance-button.component";
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormControlDirective, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from "../../../ui/navbar/navbar.component";
 import { ApiService } from '../../../../api.service';
-import { FooterComponent } from "../../../ui/footer/footer.component";
+import { BreadcrumbComponent } from "../../../ui/breadcrumb/breadcrumb.component";
+import { DiscardModalComponent } from "../../../ui/discard-modal/discard-modal.component";
+import { VendorService } from '../../../../vendor.service';
 
 @Component({
   selector: 'app-create-vendor',
   standalone: true,
-  imports: [ContractTypeButtonComponent, ServiceTypeButtonComponent, VendorConfidanceButtonComponent, ReactiveFormsModule, CommonModule, NavbarComponent, FooterComponent],
+  imports: [ReactiveFormsModule, CommonModule, NavbarComponent, BreadcrumbComponent, FormsModule, DiscardModalComponent],
   templateUrl: './create-vendor.component.html',
   styleUrl: './create-vendor.component.scss'
 })
 export class CreateVendorComponent {
+  constructor(
+    private api: ApiService,
+    private vendorService: VendorService
+
+
+  ) {}
   vendorForm = new FormGroup({
-    vendorName: new FormControl('',[Validators.required]),
-    streetAddress1:new FormControl('',[Validators.required]),
+
+    vendorName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    streetAddress1: new FormControl('', [Validators.required, Validators.minLength(6)]),
     streetAddress2: new FormControl(''),
-    city: new FormControl('',[Validators.required]),
-    country: new FormControl('',[Validators.required]),
+    city: new FormControl('', [Validators.required]),
+    country: new FormControl('', [Validators.required]),
     state: new FormControl(''),
     postalCode: new FormControl(''),
-    market: new FormControl('',[Validators.required]),
-    email:new FormControl('',[Validators.required]),
-    phoneCode:new FormControl('',[Validators.required]),
-    website:new FormControl(''),
-    contractType:new FormControl('',[Validators.required]),
-    vendorConfidence:new FormControl('',[Validators.required]),
-    phone:new FormControl('',[Validators.required]),
+    market: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phoneCode: new FormControl('', [Validators.required]),
+    website: new FormControl(''),
+    contractType: new FormControl('', [Validators.required]),
+    vendorConfidence: new FormControl('', [Validators.required]),
+    phone: new FormControl('', [Validators.required, Validators.pattern('[0-9]')]),
+    serviceType: new FormControl('', [Validators.required]),
+    // selectTheCompany: new FormControl('', [Validators.required]),
+  });
 
-  })
+
 
 
 
@@ -56,14 +68,13 @@ export class CreateVendorComponent {
     market: [
       { type: 'required', message: 'Please select at least one market' }
     ],
-    serviceTypes: [
-      { type: 'required', message: 'Please select at least one service type' }
-    ]
+    serviceType: [
+      { type: 'required', message: 'Please select a service' }
+    ],
+
   };
 
-  constructor(private fb: FormBuilder,
-    private api: ApiService
-  ) {}
+
 
   countries:any
   markets:any
@@ -81,13 +92,65 @@ export class CreateVendorComponent {
   })
   }
 
+  showModal = false;
 
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
+  handleConfirm() {
+    console.log('Confirmed!');
+    this.closeModal();
+  }
+
+
+
+  contractTypeOptions = [
+    { label: 'None', value: 'full-contract' },
+    { label: 'Low', value: 'dates-rates' },
+    { label: 'Medium', value: 'online-booking' },
+    { label: 'High', value: 'no-contract' }
+  ];
+
+  serviceTypeOptions = [
+    { label: 'Hotel Room', value: 'hotel' },
+    { label: 'Ship Cabin', value: 'ship' },
+    { label: 'Meal', value: 'meal' },
+    { label: 'Transport', value: 'transport' },
+    { label: 'Permit', value: 'permit' },
+    { label: 'Physical Activity', value: 'physical' },
+    { label: 'Non-Physical Activity', value: 'non-physical' },
+    { label: 'Venue', value: 'venue' },
+    { label: 'Local Guide', value: 'guide' },
+    { label: 'Other', value: 'other' }
+  ];
+
+  onServiceTypeChange(value: any) {
+    console.log('Service Type Changed:', value);
+  }
 
   onSubmit() {
 
-      console.log(this.vendorForm.value);
-      console.log('Contract Type:', this.vendorForm.get('contractType')?.value);
 
+
+      console.log("Form is valid");
+      const formData = this.vendorForm.value;
+      console.log(formData);
+
+      this.vendorService.submitVendorData(formData).subscribe(
+        (response) => {
+          console.log('Vendor data submitted successfully:', response);
+        },
+        (error) => {
+          console.error('Error submitting vendor data:', error);
+        }
+      );
+
+    alert('Vendor data submitted successfully');
   }
 
 

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-vendor-confidance-button',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './vendor-confidance-button.component.scss'
 })
 export class VendorConfidanceButtonComponent {
+@Input() control!:FormControl
+
 
 }

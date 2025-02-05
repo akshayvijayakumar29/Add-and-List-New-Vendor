@@ -1,6 +1,7 @@
 <div class="top-nav-section">
   <app-navbar></app-navbar>
 </div>
+<app-breadcrumb></app-breadcrumb>
 <form [formGroup]="vendorForm" (ngSubmit)="onSubmit()" class="container">
   <!-- Vendor Name -->
   <div class="form-group">
@@ -170,48 +171,127 @@
   </div>
 
   <!-- Service Types -->
-  <label for="Contact-information" class="contact">
-    Service Types
-    <span>*</span>
+  <label for="service-type" class="contract">
+    Service Type
   </label>
   <div class="section-subtitle">
-    Select all the service provided by this vendor
+    Select the type of service
   </div>
   <div class="form-group">
-    <app-service-type-button formControlName="serviceTypes"></app-service-type-button>
-    @for (message of validationMessages.serviceTypes; track message.type) {
-    @if (vendorForm.get('serviceTypes')?.hasError(message.type) &&
-    (vendorForm.get('serviceTypes')?.dirty ||
-    vendorForm.get('serviceTypes')?.touched)) {
-    <div class="error-message">{{ message.message }}</div>
-    }
-    }
+    <div class="radio-group">
+      <label class="radio-btn">
+        <input type="radio" formControlName="serviceType" value="Hotel" />
+        <span class="service-name">Hotel Room</span>
+      </label>
+      <label class="radio-btn">
+        <input type="radio" formControlName="serviceType" value="Ship Cabin" />
+        <span class="service-name">Ship Cabin</span>
+      </label>
+      <label class="radio-btn">
+        <input type="radio" formControlName="serviceType" value="Meal" />
+        <span class="service-name">Meal</span>
+      </label>
+      <label class="radio-btn">
+        <input type="radio" formControlName="serviceType" value="Transport" />
+        <span class="service-name">Transport</span>
+      </label>
+      <label class="radio-btn">
+        <input type="radio" formControlName="serviceType" value="Permit" />
+        <span class="service-name">Permit</span>
+      </label>
+      <label class="radio-btn">
+        <input type="radio" formControlName="serviceType" value="Physical Activity" />
+        <span class="service-name">Physical Activity</span>
+      </label>
+      <label class="radio-btn">
+        <input type="radio" formControlName="serviceType" value="Non-Physical Activity" />
+        <span class="service-name">Non-Physical Activity</span>
+      </label>
+      <label class="radio-btn">
+        <input type="radio" formControlName="serviceType" value="Venue" />
+        <span class="service-name">Venue</span>
+      </label>
+      <label class="radio-btn">
+        <input type="radio" formControlName="serviceType" value="Local Guide" />
+        <span class="service-name">Local Guide</span>
+      </label>
+      <label class="radio-btn">
+        <input type="radio" formControlName="serviceType" value="Other" />
+        <span class="service-name">Other</span>
+      </label>
+    </div>
+    <div *ngIf="vendorForm.get('serviceType')?.touched && vendorForm.get('serviceType')?.invalid">
+      <div class="error-message">Please select a service type.</div>
+    </div>
   </div>
 
+
   <!-- Contract Type -->
-  <label for="Contract-information" class="contract">
+  <label for="contract-type" class="contract">
     Contract Type
   </label>
   <div class="section-subtitle">
-    Select the Contract Type for this Hotel
+    Select the Contract Type for this Vendor
   </div>
   <div class="form-group">
-    <app-contract-type-button formControlName="contractType"></app-contract-type-button>
+    <div class="radio-group">
+      <label>
+        <div class="radio-btn">
+          <input type="radio"  value="Full-Contract" formControlName="contractType"> Full Contract
+        </div>
+      </label>
+      <div class="radio-btn">
+        <label>
+          <input type="radio"  value="Dates & rates" formControlName="contractType"> Dates & rates
+        </label>
+      </div>
+      <div class="radio-btn">
+        <label>
+          <input type="radio"  value="Online Booking" formControlName="contractType"> Online Booking
+        </label>
+      </div>
+      <div class="radio-btn">
+        <label>
+          <input type="radio"  value="No contract" formControlName="contractType"> No contract
+        </label>
+      </div>
+    </div>
+    <div *ngIf="vendorForm.get('contractType')?.touched && vendorForm.get('contractType')?.invalid">
+      <div class="error-message">Please select a contract type.</div>
+    </div>
   </div>
 
-  <!-- Vendor Confidence -->
-  <label for="Contract-information" class="contract">
+
+
+
+  <label for="vendor-confidence" class="contract">
     Vendor Confidence
   </label>
   <div class="section-subtitle">
-    Select the Confidence Level for this Hotel
+    Select the Confidence Level for this Vendor
   </div>
   <div class="form-group">
-    <app-vendor-confidance-button formControlName="vendorConfidence"></app-vendor-confidance-button>
+    <div class="radio-group">
+      <label class="radio-btn">
+        <input type="radio" formControlName="vendorConfidence" value="Low" />
+        <span class="service-name">Low</span>
+      </label>
+      <label class="radio-btn">
+        <input type="radio" formControlName="vendorConfidence" value="Medium" />
+        <span class="service-name">Medium</span>
+      </label>
+      <label class="radio-btn">
+        <input type="radio" formControlName="vendorConfidence" value="High" />
+        <span class="service-name">High</span>
+      </label>
+    </div>
+    <div *ngIf="vendorForm.get('vendorConfidence')?.touched && vendorForm.get('vendorConfidence')?.invalid">
+      <div class="error-message">Please select a confidence level.</div>
+    </div>
   </div>
 
   <!-- Contact Through -->
-  <label for="Contact-information" class="contact">
+  <!-- <label for="Contact-information" class="contact">
     Contact Through
   </label>
   <div class="section-subtitle">
@@ -222,21 +302,19 @@
       <input id="select-vendor" placeholder="Select Vendor" type="text" />
       <i class="bi bi-search"></i>
     </div>
-  </div>
-</form>
-
-<!--footer-->
+  </div> -->
+  <!--footer-->
 <div class="form-footer">
   <div class="note">
-   Fill all mandatory fields to submit for approval
+    Fill all mandatory fields to submit for approval
   </div>
   <div class="footer-buttons">
-   <button class="discard">
-    Discard
-   </button>
-   <button class="submit" type="submit" (click)="onSubmit()">
-    Submit for Approval
-   </button>
+    <app-discard-modal></app-discard-modal>
+    <button class="submit" type="submit" >
+      Submit for Approval
+    </button>
   </div>
- </div>
+</div>
+</form>
+
 

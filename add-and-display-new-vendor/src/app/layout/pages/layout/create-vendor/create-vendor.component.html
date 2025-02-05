@@ -237,22 +237,22 @@
     <div class="radio-group">
       <label>
         <div class="radio-btn">
-          <input type="radio"  value="Full-Contract" formControlName="contractType"> Full Contract
+          <input type="radio" value="Full-Contract" formControlName="contractType"> Full Contract
         </div>
       </label>
       <div class="radio-btn">
         <label>
-          <input type="radio"  value="Dates & rates" formControlName="contractType"> Dates & rates
+          <input type="radio" value="Dates & rates" formControlName="contractType"> Dates & rates
         </label>
       </div>
       <div class="radio-btn">
         <label>
-          <input type="radio"  value="Online Booking" formControlName="contractType"> Online Booking
+          <input type="radio" value="Online Booking" formControlName="contractType"> Online Booking
         </label>
       </div>
       <div class="radio-btn">
         <label>
-          <input type="radio"  value="No contract" formControlName="contractType"> No contract
+          <input type="radio" value="No contract" formControlName="contractType"> No contract
         </label>
       </div>
     </div>
@@ -260,10 +260,6 @@
       <div class="error-message">Please select a contract type.</div>
     </div>
   </div>
-
-
-
-
   <label for="vendor-confidence" class="contract">
     Vendor Confidence
   </label>
@@ -290,31 +286,17 @@
     </div>
   </div>
 
-  <!-- Contact Through -->
-  <!-- <label for="Contact-information" class="contact">
-    Contact Through
-  </label>
-  <div class="section-subtitle">
-    Select the company that Backroads will be using for bookings and payments
-  </div>
-  <div class="form-group">
-    <div class="input-wrapper">
-      <input id="select-vendor" placeholder="Select Vendor" type="text" />
-      <i class="bi bi-search"></i>
-    </div>
-  </div> -->
+
   <!--footer-->
-<div class="form-footer">
-  <div class="note">
-    Fill all mandatory fields to submit for approval
+  <div class="form-footer">
+    <div class="note">
+      Fill all mandatory fields to submit for approval
+    </div>
+    <div class="footer-buttons">
+      <app-discard-modal></app-discard-modal>
+      <button class="submit" type="submit">
+        Submit for Approval
+      </button>
+    </div>
   </div>
-  <div class="footer-buttons">
-    <app-discard-modal></app-discard-modal>
-    <button class="submit" type="submit" >
-      Submit for Approval
-    </button>
-  </div>
-</div>
 </form>
-
-

@@ -17,7 +17,7 @@ export class BreadcrumbService {
   constructor(private router: Router) {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
       const breadcrumbs = this.createBreadcrumbs(this.router.routerState.snapshot.root);
-      this.breadcrumbsSubject.next([{ label: 'Home', url: '/' }, ...breadcrumbs]); // Add "Home" as the root
+      this.breadcrumbsSubject.next([{ label: 'Home', url:'/' },...breadcrumbs]); // Add "Home" as the root
     });
   }
 

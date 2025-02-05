@@ -217,9 +217,6 @@ select.ng-invalid.ng-touched {
   border-color: #dc3545;
 }
 
-
-
-
 .form-footer {
   display: flex;
   gap: 10rem;
@@ -259,4 +256,51 @@ select.ng-invalid.ng-touched {
   display: flex;
   justify-content: space-between;
   gap: 2rem ;
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.radio-btn {
+  position: relative;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  max-width: fit-content;
+  max-height: fit-content;
+  transition: all 0.3s ease;
+}
+
+.radio-btn input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-btn span {
+  display: block;
+}
+
+/* Selected state */
+.radio-btn:has(input[type="radio"]:checked) {
+  background-color: rgba(168, 186, 210, 0.568);
+  border-color: rgb(235, 235, 245);
+  color: rgb(97, 202, 228);
+}
+
+/* Active state */
+.radio-btn:active {
+  background-color: rgba(168, 186, 210, 0.568);
+  border-color: rgb(97, 202, 228);
+}
+
+.service-name {
+  color: black;
 }
